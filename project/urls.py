@@ -20,5 +20,5 @@ from ajax.views import PopoverView, DataView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', PopoverView, name='popover'),
-    path('', DataView, name='data'),
+    path('data/', DataView, name='data'),
 ]

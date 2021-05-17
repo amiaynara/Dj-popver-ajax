@@ -1,5 +1,27 @@
 {% extends 'ajax/base.html' %}
 
 {% block body %}
-This is the body
+
+<a tabindex="0" class="btn btn-lg btn-danger" role="button" data-toggle="popover" data-trigger="focus"  >Dismissible popover</a>
+{% endblock %}
+{% block java_script %}
+var template = '<div class="popover" role="tooltip"><div class="arrow"></div><strong class="popover-header"></strong><div class="popover-body"></div></div>';
+$('.btn').click(function(){
+    $.ajax({
+        url: "{% url 'data' %}",
+        dataType:'json',
+        success: function(data){
+            var content = data.name + data.last_name 
+            console.log(data)
+            $('.btn').popover({
+              trigger: 'click',
+              title: 'MY Name',
+              content : content,
+              template: template,
+              html: true
+
+            })
+        }
+    });
+});
 {% endblock %}

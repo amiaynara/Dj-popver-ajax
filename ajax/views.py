@@ -8,7 +8,7 @@ def PopoverView(request):
 
 def DataView(request):
     context={
-            "name": "amiay",
+            "name": "abhay",
             "last_name": "narayan",
             }
     return JsonResponse(context)
